@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #333;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 15px;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            background-color: #d21cb1;
+            color: #fff;
+        }
+
+        .contenedor {
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .video-background video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header y Menú de Navegación -->
+<header>
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="video3.mp4" type="video/mp4">
+            Tu navegador no soporta el elemento <code>video</code>.
+        </video>
+    </div>
+
+    <div class="logo">
+        <img src="libro.png" alt="Logo">
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="formulario.html">Libro</a></li> <!-- Enlace al formulario -->
+        </ul>
+    </nav>
+</header>
+
+<!-- Sección Nosotros -->
+<div id="nosotros" class="contenedor">
+    <h2>Nosotros</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur dolor ratione consequatur optio animi voluptas!</p>
+</div>
+
+<!-- Sección Contacto -->
+<div id="contacto" class="contenedor">
+    <h2>Contacto</h2>
+    <p>Email: contacto@libros.com</p>
+    <p>Teléfono: +123456789</p>
+</div>
+
+</body>
+</html>
+
+
+

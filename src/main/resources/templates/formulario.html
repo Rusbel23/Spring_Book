@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Libros</title>
+  <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f9f9f9;
+    }
+
+    header {
+        background-color: #333;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo img {
+        height: 40px;
+    }
+
+    nav ul {
+        list-style-type: none;
+        display: flex;
+        gap: 20px;
+    }
+
+    nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 10px 15px;
+        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    }
+
+    nav ul li a:hover {
+        background-color: #d21cb1;
+        color: #fff;
+    }
+
+    .contenedor {
+        background-color: rgba(255, 255, 255, 0.5);
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        max-width: 400px;
+        margin: 20px auto;
+    }
+
+    h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .grupo-formulario {
+        margin-bottom: 15px;
+    }
+
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #333;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 5px;
+        border: 1px solid #601212;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    .botones-formulario {
+        display: flex;
+        gap: 10px;
+    }
+
+    button[type="button"],
+    button[type="reset"] {
+        flex: 1;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    button[type="button"] {
+        background-color: #28a745;
+        color: white;
+    }
+
+    button[type="reset"] {
+        background-color: #dc3545;
+        color: white;
+    }
+
+    button[type="button"]:hover {
+        background-color: #218838;
+    }
+
+    button[type="reset"]:hover {
+        background-color: #c82333;
+    }
+
+    #resultados p {
+        margin: 5px 0;
+    }
+    .video-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: -1;
+    }
+
+    .video-background video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header y Menú de Navegación -->
+<header>
+  <div class="video-background">
+    <video autoplay muted loop>
+      <source src="video3.mp4" type="video/mp4">
+      Tu navegador no soporta el elemento <code>video</code>.
+    </video>
+  </div>
+
+  <div class="logo">
+    <img src="libro.png" alt="Logo">
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="">Contacto</a></li>
+      <li><a href="#formulario-libro">Libro</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Formulario de Libros -->
+<div id="formulario-libro" class="contenedor">
+  <h2>Formulario Datos del Libro</h2>
+  <form id="formulario-libro1">
+    <div class="grupo-formulario">
+      <label for="id">ID:</label>
+      <input type="text" id="id" name="id" required>
+    </div>
+    <div class="grupo-formulario">
+      <label for="codeBook">Código del Libro:</label>
+      <input type="text" id="codeBook" name="codeBook" required>
+    </div>
+    <div class="grupo-formulario">
+      <label for="name">Nombre:</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+    <div class="grupo-formulario">
+      <label for="title">Título:</label>
+      <input type="text" id="title" name="title" required>
+    </div>
+    <div class="grupo-formulario">
+      <label for="publisher">Editorial:</label>
+      <input type="text" id="publisher" name="publisher" required>
+    </div>
+    <div class="grupo-formulario">
+      <label for="sbn">SBN (Single Book Number):</label>
+      <input type="text" id="sbn" name="sbn" maxlength="1" required>
+    </div>
+    <div class="botones-formulario">
+      <button type="button" onclick="mostrarDatos()">Enviar</button>
+      <button type="reset">Limpiar</button>
+    </div>
+  </form>
+</div>
+
+<!-- Resultados -->
+<div class="contenedor" id="contenedor-resultados">
+  <h2>Datos Ingresados</h2>
+  <div id="resultados"></div>
+</div>
+
+<script>
+  function mostrarDatos() {
+      const id = document.getElementById('id').value;
+      const codeBook = document.getElementById('codeBook').value;
+      const name = document.getElementById('name').value;
+      const title = document.getElementById('title').value;
+      const publisher = document.getElementById('publisher').value;
+      const sbn = document.getElementById('sbn').value;
+
+      const resultados = `
+          <p><strong>ID:</strong> ${id}</p>
+          <p><strong>Código del Libro:</strong> ${codeBook}</p>
+          <p><strong>Nombre:</strong> ${name}</p>
+          <p><strong>Título:</strong> ${title}</p>
+          <p><strong>Editorial:</strong> ${publisher}</p>
+          <p><strong>SBN:</strong> ${sbn}</p>
+      `;
+
+      document.getElementById('resultados').innerHTML = resultados;
+  }
+</script>
+
+</body>
+</html>
